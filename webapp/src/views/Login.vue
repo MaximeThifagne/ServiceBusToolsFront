@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import firebase from "firebase/compat/app"
+import firebase from "firebase/compat/app";
 export default {
   data() {
     return {
@@ -29,17 +29,19 @@ export default {
   },
   methods: {
     login() {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
-        alert("User logged successfully");
-        this.$router.push("/dashboard");
-      })
-      .catch(error => {
-        alert(error.message)
-      })
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          alert("User logged successfully");
+          this.$router.push("/dashboard");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

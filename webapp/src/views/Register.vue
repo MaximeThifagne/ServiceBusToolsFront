@@ -13,13 +13,13 @@
         v-model="password"
         placeholder="Your password"
       />
-      <input type="submit" value="Register">
+      <input type="submit" value="Register" />
     </form>
   </div>
 </template>
 
 <script>
-    import firebase from "firebase/compat/app"
+import firebase from "firebase/compat/app";
 export default {
   data() {
     return {
@@ -29,17 +29,19 @@ export default {
   },
   methods: {
     register() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() =>{
-        alert("User successfuly registered");
-        this.$router.push("/login");
-      })
-      .catch(error => {
-        alert(error.message)
-      })
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          alert("User successfuly registered");
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

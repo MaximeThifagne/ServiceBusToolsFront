@@ -1,10 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 Vue.config.productionTip = false;
 const firebaseConfig = {
@@ -14,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "servicebustools.appspot.com",
   messagingSenderId: "669498911458",
   appId: "1:669498911458:web:8744f9b22773511ff0ccbb",
-  measurementId: "G-HRMSJRQP2E"
+  measurementId: "G-HRMSJRQP2E",
 };
 
 firebase.initializeApp(firebaseConfig);

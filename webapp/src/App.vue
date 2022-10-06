@@ -11,21 +11,24 @@
 </template>
 
 <script>
-  import firebase from "firebase/compat/app"
-  export default {
-    methods: {
-      logout() {
-        firebase.auth().signOut().then(() => {
+import firebase from "firebase/compat/app";
+export default {
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
           alert("successfully logged out");
-          this.$router.push("/")
-        })
-        .catch(error => {
-          alert(error.message);
           this.$router.push("/");
         })
-      }
+        .catch((error) => {
+          alert(error.message);
+          this.$router.push("/");
+        });
     },
-  }
+  },
+};
 </script>
 
 <style>

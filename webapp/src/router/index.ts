@@ -26,13 +26,12 @@ const routes: Array<RouteConfig> = [
   {
     path: "/login",
     name: "Login",
-    component: Login
-
+    component: Login,
   },
   {
     path: "/register",
     name: "Register",
-    component: Register
+    component: Register,
   },
   {
     path: "/dashboard",
@@ -40,9 +39,9 @@ const routes: Array<RouteConfig> = [
     component: () =>
       import(/* webpackChunckName: "dashboard" */ "../views/Dashboard.vue"),
     meta: {
-      authRequired: true
-    }
-  }
+      authRequired: true,
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -52,20 +51,18 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.authRequired)) {
+  if (to.matched.some((record) => record.meta.authRequired)) {
     if (firebase.auth().currentUser) {
       next();
-    }
-    else {
+    } else {
       alert("user not logged");
       next({
-        path: '/'
-      })
+        path: "/",
+      });
     }
-  }
-  else {
+  } else {
     next();
   }
-})
+});
 
 export default router;
